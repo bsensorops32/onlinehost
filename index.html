@@ -23,16 +23,14 @@
 
   <script src="https://vjs.zencdn.net/8.0.4/video.min.js"></script>
   <script>
-    // Example UUID and settings
-    const uuid = 'c6a4e9fb-afe7-4af9-8aac-48c3af9ab1f4'; // Replace with your dynamic UUID
+    // Hardcoded URL
     const videoJsId = 'camera-video'; // Unique Video.js ID
     const className = 'vjs-default-skin'; // Add additional classes if needed
-    const videoSource = '/cameraFolder/' + uuid + '/index.m3u8'; // Dynamic source path
+    const videoSource = 'https://192.168.1.75/cameraFolder/46f7e151-0-9037-d2c4214d25bd/index.m3u8'; // Hardcoded source URL
 
     // Generate video tag dynamically
     const videoTag = `
       <video 
-        data-uuid-id="${uuid}" 
         id="${videoJsId}" 
         class="${className} video-js vjs-fluid" 
         preload="auto" 
