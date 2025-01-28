@@ -26,7 +26,7 @@
     // Hardcoded URL
     const videoJsId = 'camera-video'; // Unique Video.js ID
     const className = 'vjs-default-skin'; // Add additional classes if needed
-    const videoSource = 'https://192.168.1.75/cameraFolder/46f7e151-0-9037-d2c4214d25bd/index.m3u8'; // Hardcoded source URL
+    const videoSource = 'https://192.168.1.75/cameraFolder/c6a4e9fb-afe7-4af9-8aac-48c3af9ab1f4/index.m3u8'; // Hardcoded source URL
 
     // Generate video tag dynamically
     const videoTag = `
@@ -40,6 +40,7 @@
           <source src="${videoSource}" type="application/x-mpegURL">
       </video>
     `;
+	
 
     // Inject video tag into the container
     document.getElementById('video-container').innerHTML = videoTag;
