@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Video.js Player</title>
+  <link href="https://vjs.zencdn.net/8.0.4/video-js.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    video {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Dynamic Video.js Player</h1>
+  <div id="video-container"></div> <!-- Placeholder for the video -->
+
+  <script src="https://vjs.zencdn.net/8.0.4/video.min.js"></script>
+  <script>
+    // Example UUID and settings
+    const uuid = 'c6a4e9fb-afe7-4af9-8aac-48c3af9ab1f4'; // Replace with your dynamic UUID
+    const videoJsId = 'camera-video'; // Unique Video.js ID
+    const className = 'vjs-default-skin'; // Add additional classes if needed
+    const videoSource = '/cameraFolder/' + uuid + '/index.m3u8'; // Dynamic source path
+
+    // Generate video tag dynamically
+    const videoTag = `
+      <video 
+        data-uuid-id="${uuid}" 
+        id="${videoJsId}" 
+        class="${className} video-js vjs-fluid" 
+        preload="auto" 
+        muted 
+        controls 
+        autoplay>
+          <source src="${videoSource}" type="application/x-mpegURL">
+      </video>
+    `;
+
+    // Inject video tag into the container
+    document.getElementById('video-container').innerHTML = videoTag;
+
+    // Initialize Video.js on the dynamically created video element
+    const player = videojs(videoJsId);
+    player.ready(function () {
+      console.log('Video.js player is ready!');
+      player.play(); // Automatically start playback
+    });
+  </script>
+</body>
+</html>
